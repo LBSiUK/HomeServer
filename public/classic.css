@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  width: 320px;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: none;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Launch screen ───────────────────────────────────────────── */
+
+#launch-view {
+  width: 320px;
+  height: 480px;
+  background-color: #000000;
+  text-align: center;
+}
+
+#launch-box {
+  padding-top: 140px;
+}
+
+#launch-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+#launch-msg {
+  font-size: 13px;
+  color: #888888;
+  margin-bottom: 30px;
+}
+
+.big-btn {
+  display: inline-block;
+  background-color: #1DB954;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 24px;
+}
+
+/* ── Album art ───────────────────────────────────────────────── */
+
+#art-wrap {
+  width: 320px;
+  text-align: center;
+  padding: 14px 0 10px 0;
+  position: relative;
+}
+
+#album-art {
+  width: 160px;
+  height: 160px;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+  display: block;
+  margin: 0 auto;
+}
+
+#no-playback {
+  display: none;
+  width: 160px;
+  height: 160px;
+  line-height: 160px;
+  text-align: center;
+  font-size: 13px;
+  color: #666666;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+/* ── Track info ──────────────────────────────────────────────── */
+
+#track-info {
+  text-align: center;
+  padding: 8px 16px 6px 16px;
+}
+
+#track-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#track-artist {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#track-album {
+  font-size: 11px;
+  color: #666666;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+
+#progress-section {
+  width: 320px;
+  padding: 6px 0;
+  /* table layout to vertically center time labels with the bar */
+  display: table;
+}
+
+#progress-section .time-label {
+  display: table-cell;
+  font-size: 11px;
+  color: #888888;
+  width: 36px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#progress-bg {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #333333;
+  border-radius: 2px;
+  height: 4px;
+  padding: 14px 0;
+  background-clip: content-box;
+}
+
+#progress-fill {
+  height: 4px;
+  width: 0%;
+  background-color: #1DB954;
+  border-radius: 2px;
+}
+
+/* ── Transport controls ──────────────────────────────────────── */
+
+#controls {
+  text-align: center;
+  padding: 10px 0 8px 0;
+}
+
+.ctrl-btn {
+  display: inline-block;
+  width: 56px;
+  height: 52px;
+  line-height: 52px;
+  font-size: 18px;
+  text-align: center;
+  color: #cccccc;
+  margin: 0 2px;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+}
+
+.main-btn {
+  width: 64px;
+  height: 52px;
+  font-size: 22px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+/* ── Volume ──────────────────────────────────────────────────── */
+
+#volume-row {
+  text-align: center;
+  padding: 4px 0;
+}
+
+.row-label {
+  font-size: 11px;
+  color: #666666;
+  margin-right: 6px;
+}
+
+.sm-btn {
+  display: inline-block;
+  width: 40px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #cccccc;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  margin: 0 4px;
+}
+
+#vol-value {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaaaaa;
+  vertical-align: middle;
+}
+
+/* ── Shuffle / Repeat ────────────────────────────────────────── */
+
+#toggle-row {
+  text-align: center;
+  padding: 6px 0 10px 0;
+}
+
+.toggle-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 12px;
+  color: #888888;
+  background-color: #1a1a1a;
+  border-radius: 14px;
+  margin: 0 8px;
+}
+
+.toggle-btn.active {
+  color: #1DB954;
+  background-color: #1a2e1f;
+}

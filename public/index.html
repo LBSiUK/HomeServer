@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+<body>
+
+  <div id="grid">
+
+    <!-- ── Top row: Overhead Light ─────────────────────────────────── -->
+    <div class="cell" id="cell-overhead">
+      <div class="device-label">Overhead<br>Light</div>
+      <button class="toggle-btn off" id="btn-overhead" onclick="toggleDevice('overhead')">OFF</button>
+      <div class="device-status" id="status-overhead">&#8212;</div>
+    </div>
+
+    <!-- ── Top row: Desk Light ──────────────────────────────────────── -->
+    <div class="cell" id="cell-desk">
+      <div class="device-label">Desk<br>Light</div>
+      <button class="toggle-btn off" id="btn-desk" onclick="toggleDevice('desk')">OFF</button>
+      <div class="device-status" id="status-desk">&#8212;</div>
+    </div>
+
+    <!-- ── Top row: Amplifier ───────────────────────────────────────── -->
+    <div class="cell" id="cell-amp">
+      <div class="device-label">Amplifier</div>
+      <button class="toggle-btn off" id="btn-amplifier" onclick="toggleDevice('amplifier')">OFF</button>
+      <div class="device-status" id="status-amplifier">&#8212;</div>
+    </div>
+
+    <!-- ── Bottom left: Spotify (spans 2 cells = 320 px) ───────────── -->
+    <div id="spotify-section">
+
+      <div id="sp-launch">
+        <div class="sp-launch-title">Spotify</div>
+        <a href="#" class="sp-open-btn" onclick="openSpotify(); return false;">Open Spotify</a>
+      </div>
+
+      <div id="sp-player" style="display:none;">
+        <div id="sp-top">
+          <div id="sp-art-area">
+            <img id="sp-art" src="" alt="" width="96" height="96">
+            <div id="sp-no-art">&#9835;</div>
+          </div>
+          <div id="sp-info">
+            <div id="sp-track">Nothing playing</div>
+            <div id="sp-artist"></div>
+            <div id="sp-prog-bg" onclick="spSeek(event)">
+              <div id="sp-prog-fill"></div>
+            </div>
+            <div id="sp-time">&#8212;</div>
+          </div>
+        </div>
+        <div id="sp-controls">
+          <a href="#" class="sp-ctrl"      id="sp-btn-prev" onclick="spPrev();        return false;">&#9664;&#9664;</a>
+          <a href="#" class="sp-ctrl main" id="sp-btn-play" onclick="spTogglePlay();  return false;">&#9654;</a>
+          <a href="#" class="sp-ctrl"      id="sp-btn-next" onclick="spNext();        return false;">&#9654;&#9654;</a>
+          <span class="sp-divider">|</span>
+          <a href="#" class="sp-vol-btn" onclick="spVolume(-10); return false;">&#8722;</a>
+          <span id="sp-vol-val">&#8212;</span>
+          <a href="#" class="sp-vol-btn" onclick="spVolume(10);  return false;">&#43;</a>
+        </div>
+      </div>
+
+    </div><!-- /spotify-section -->
+
+    <!-- ── Bottom right: Clock ──────────────────────────────────────── -->
+    <div id="clock-cell">
+      <div id="clock-time">12:00<span id="clock-sec">:00</span></div>
+      <div id="clock-ampm">AM</div>
+      <div id="clock-day">Saturday</div>
+      <div id="clock-date">Mar 14</div>
+    </div>
+
+  </div><!-- /grid -->
+
+  <script type="text/javascript" src="dashboard.js"></script>
+</body>
+</html>

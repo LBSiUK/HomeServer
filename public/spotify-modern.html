@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Remote</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="launch-view" class="view hidden">
+    <div class="login-card">
+      <h1>Spotify Remote</h1>
+      <p>Spotify is not running on this Mac.</p>
+      <button id="btn-open-spotify" class="btn-login">Open Spotify</button>
+    </div>
+  </div>
+
+  <audio id="silence-audio" src="/api/silence" loop preload="auto" style="display:none;"></audio>
+
+  <div id="player-view" class="view hidden">
+    <main class="player">
+      <div class="art-wrap">
+        <img id="album-art" src="" alt="Album art">
+        <div id="no-playback" class="no-playback hidden">
+          <span>Nothing playing</span>
+        </div>
+      </div>
+
+      <div class="track-info">
+        <div id="track-name" class="track-name"></div>
+        <div id="track-artists" class="track-artists"></div>
+        <div id="track-album" class="track-album"></div>
+      </div>
+
+      <div class="progress-wrap">
+        <span id="progress-time" class="time">0:00</span>
+        <input id="seek-bar" type="range" min="0" max="100" value="0" class="seek-bar">
+        <span id="duration-time" class="time">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="btn-shuffle" class="btn-icon" title="Shuffle">
+          <svg viewBox="0 0 24 24"><path d="M17 17h-1.5l-8-10H4v-2h4.5l8 10H19V13l3 3-3 3v-2zM4 17h3.5l1.5-1.875L8 13.5 6.5 15H4v2zm15-8l-1.5 1.875L19 13V11h-2.5l-1.5-1.875L16 7.5 17.5 9H20V7l3 3-3 3V9z"/></svg>
+        </button>
+        <button id="btn-prev" class="btn-icon" title="Previous">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+        </button>
+        <button id="btn-play-pause" class="btn-icon btn-play" title="Play/Pause">
+          <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="icon-pause" viewBox="0 0 24 24" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button id="btn-next" class="btn-icon" title="Next">
+          <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+        <button id="btn-repeat" class="btn-icon" title="Repeat: off">
+          <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+        </button>
+      </div>
+
+      <div class="volume-wrap">
+        <svg class="vol-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+        <input id="volume-bar" type="range" min="0" max="100" value="50" class="volume-bar">
+        <span id="volume-value" class="vol-label">50</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

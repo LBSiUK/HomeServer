@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 480px;
+  height: 360px;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ── Grid ──────────────────────────────────────────────────────────────── */
+
+#grid {
+  position: relative;
+  width: 480px;
+  height: 360px;
+  background: #1e1e1e; /* shows as cell separator lines */
+}
+
+/* ── Cell base ──────────────────────────────────────────────────────────── */
+
+.cell,
+#spotify-section,
+#clock-cell {
+  position: absolute;
+  background: #111;
+}
+
+/* ── Top row ────────────────────────────────────────────────────────────── */
+
+#cell-overhead {
+  left: 1px; top: 1px; width: 158px; height: 178px;
+}
+
+#cell-desk {
+  left: 161px; top: 1px; width: 158px; height: 178px;
+}
+
+#cell-amp {
+  left: 321px; top: 1px; width: 158px; height: 178px;
+}
+
+/* ── Bottom row ─────────────────────────────────────────────────────────── */
+
+#spotify-section {
+  left: 1px; top: 181px; width: 318px; height: 178px;
+  overflow: hidden;
+}
+
+#clock-cell {
+  left: 321px; top: 181px; width: 158px; height: 178px;
+}
+
+/* ── Device cells ───────────────────────────────────────────────────────── */
+
+.device-label {
+  padding-top: 16px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+  line-height: 13px;
+  height: 42px;
+}
+
+.toggle-btn {
+  display: block;
+  margin: 14px auto 0 auto;
+  width: 112px;
+  height: 58px;
+  border-radius: 29px;
+  border: 2px solid #2a2a2a;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: background 0.25s, color 0.25s, border-color 0.25s;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.toggle-btn.off {
+  background: #191919;
+  color: #383838;
+  border-color: #222;
+}
+
+/* Light cells use warm yellow when on */
+#cell-overhead .toggle-btn.on,
+#cell-desk .toggle-btn.on {
+  background: #ffe566;
+  color: #3a2d00;
+  border-color: #d4b800;
+}
+
+/* Amplifier uses green when on */
+#cell-amp .toggle-btn.on {
+  background: #1DB954;
+  color: #fff;
+  border-color: #17a347;
+}
+
+.device-status {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2a2a2a;
+}
+
+.device-status.live {
+  color: #555;
+}
+
+/* ── Spotify: launch screen ─────────────────────────────────────────────── */
+
+#sp-launch {
+  padding-top: 38px;
+  text-align: center;
+}
+
+.sp-launch-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.sp-open-btn {
+  display: inline-block;
+  background: #1DB954;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 26px;
+  border-radius: 20px;
+}
+
+/* ── Spotify: player ────────────────────────────────────────────────────── */
+
+#sp-player {
+  position: relative;
+  width: 318px;
+  height: 178px;
+}
+
+/* Top area: art + info */
+#sp-top {
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  height: 132px;
+}
+
+/* Art column */
+#sp-art-area {
+  position: absolute;
+  left: 0; top: 0;
+  width: 128px;
+  height: 132px;
+}
+
+#sp-art {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  width: 96px;
+  height: 96px;
+  border-radius: 4px;
+  background: #1a1a1a;
+}
+
+#sp-no-art {
+  display: none;
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  width: 96px;
+  height: 96px;
+  border-radius: 4px;
+  background: #1a1a1a;
+  text-align: center;
+  line-height: 96px;
+  font-size: 36px;
+  color: #2a2a2a;
+}
+
+/* Info column */
+#sp-info {
+  position: absolute;
+  left: 128px;
+  top: 0;
+  right: 0;
+  height: 132px;
+  padding: 14px 8px 4px 6px;
+  overflow: hidden;
+}
+
+#sp-track {
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+#sp-artist {
+  font-size: 11px;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+/* Progress bar — padded for tap target */
+#sp-prog-bg {
+  background: #2e2e2e;
+  border-radius: 2px;
+  padding: 9px 0;
+  background-clip: content-box;
+  height: 22px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+#sp-prog-fill {
+  height: 4px;
+  width: 0%;
+  background: #1DB954;
+  border-radius: 2px;
+}
+
+#sp-time {
+  font-size: 10px;
+  color: #555;
+}
+
+/* Controls bar */
+#sp-controls {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 318px;
+  height: 46px;
+  background: #0d0d0d;
+  text-align: center;
+  line-height: 46px;
+}
+
+.sp-ctrl {
+  display: inline-block;
+  width: 42px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+}
+
+.sp-ctrl.main {
+  width: 48px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.sp-divider {
+  display: inline-block;
+  color: #2a2a2a;
+  font-size: 18px;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+.sp-vol-btn {
+  display: inline-block;
+  width: 30px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #999;
+  text-align: center;
+}
+
+#sp-vol-val {
+  display: inline-block;
+  width: 26px;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  vertical-align: middle;
+}
+
+/* ── Clock ──────────────────────────────────────────────────────────────── */
+
+#clock-cell {
+  text-align: center;
+}
+
+#clock-time {
+  padding-top: 22px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+#clock-sec {
+  font-size: 22px;
+  color: #3a3a3a;
+  letter-spacing: 0;
+}
+
+#clock-ampm {
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+#clock-day {
+  font-size: 13px;
+  color: #bbb;
+  margin-bottom: 3px;
+}
+
+#clock-date {
+  font-size: 11px;
+  color: #555;
+}

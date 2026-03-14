@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <title>Spotify Remote</title>
+  <link rel="stylesheet" type="text/css" href="classic.css" />
+</head>
+<body>
+
+  <div id="launch-view">
+    <div id="launch-box">
+      <div id="launch-title">Spotify Remote</div>
+      <div id="launch-msg">Spotify is not running.</div>
+      <a href="#" id="btn-open-spotify" class="big-btn">Open Spotify</a>
+    </div>
+  </div>
+
+  <div id="player-view" style="display:none;">
+
+    <div id="art-wrap">
+      <img id="album-art" src="" alt="" width="160" height="160" />
+      <div id="no-playback">Nothing playing</div>
+    </div>
+
+    <div id="track-info">
+      <div id="track-name">&nbsp;</div>
+      <div id="track-artist">&nbsp;</div>
+      <div id="track-album">&nbsp;</div>
+    </div>
+
+    <div id="progress-section">
+      <span id="progress-time" class="time-label">0:00</span>
+      <div id="progress-bg">
+        <div id="progress-fill"></div>
+      </div>
+      <span id="duration-time" class="time-label">0:00</span>
+    </div>
+
+    <div id="controls">
+      <a href="#" id="btn-prev"  class="ctrl-btn">&#9664;&#9664;</a>
+      <a href="#" id="btn-play"  class="ctrl-btn main-btn">&#9654;</a>
+      <a href="#" id="btn-pause" class="ctrl-btn main-btn" style="display:none;">&#9646;&#9646;</a>
+      <a href="#" id="btn-next"  class="ctrl-btn">&#9654;&#9654;</a>
+    </div>
+
+    <div id="volume-row">
+      <span class="row-label">VOL</span>
+      <a href="#" id="btn-vol-dn" class="sm-btn">&#8722;</a>
+      <span id="vol-value">50</span>
+      <a href="#" id="btn-vol-up" class="sm-btn">&#43;</a>
+    </div>
+
+    <div id="toggle-row">
+      <a href="#" id="btn-shuffle" class="toggle-btn">Shuffle</a>
+      <a href="#" id="btn-repeat"  class="toggle-btn">Repeat</a>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="classic.js"></script>
+
+</body>
+</html>
