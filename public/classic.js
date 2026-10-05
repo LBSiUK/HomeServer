@@ -1,15 +1,6 @@
 // Spotify Remote - iOS 3 / iPod Touch 1st gen compatible
-// ES3 only: var, function declarations, XMLHttpRequest, no JSON.parse, no querySelector
-
-// ── JSON polyfill (for iOS 3 which lacks JSON.parse) ─────────────────────────
-if (typeof JSON === 'undefined') {
-  JSON = {};
-}
-if (typeof JSON.parse !== 'function') {
-  JSON.parse = function (str) {
-    return eval('(' + str + ')');
-  };
-}
+// ES3 only: var, function declarations, XMLHttpRequest, no querySelector.
+// JSON.parse and JSON.stringify come from json-polyfill.js on iOS 3, which lacks both.
 
 // ── DOM refs (populated in init) ──────────────────────────────────────────────
 var elLaunchView, elPlayerView, elBtnOpenSpotify;
