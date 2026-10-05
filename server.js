@@ -7,9 +7,9 @@ const devicesRouter = require('./routes/devices');
 const artRouter     = require('./routes/albums');
 const homeRouter    = require('./routes/home');
 const errorHandler  = require('./middleware/errorHandler');
+const config        = require('./config');
 
-const app  = express();
-const PORT = process.env.PORT || 3000;
+const app = express();
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -47,6 +47,7 @@ app.get('/api/silence', (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Spotify remote running at http://localhost:${PORT}`);
+app.listen(config.port, () => {
+  console.log(`Spotify remote running at http://localhost:${config.port}`);
+  if (config.demo) console.log('Demo mode: sample tracks only, Spotify and device commands are not touched.');
 });
