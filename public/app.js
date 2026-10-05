@@ -227,7 +227,9 @@ els.btnShuffle.addEventListener('click', () => {
 });
 
 els.btnRepeat.addEventListener('click', () => {
-  const cycle   = ['off', 'context', 'track'];
+  // The desktop app's AppleScript only exposes repeat on/off, so 'track' would be
+  // reported back as 'context' and the button could never be switched off again.
+  const cycle   = ['off', 'context'];
   const current = cycle.find(v => els.btnRepeat.title.endsWith(v)) || 'off';
   const next    = cycle[(cycle.indexOf(current) + 1) % cycle.length];
   els.btnRepeat.title = `Repeat: ${next}`;
