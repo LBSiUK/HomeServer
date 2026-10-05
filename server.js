@@ -1,5 +1,6 @@
 'use strict';
 
+const path          = require('path');
 const express       = require('express');
 const authRouter    = require('./routes/auth');
 const playerRouter  = require('./routes/player');
@@ -12,7 +13,7 @@ const config        = require('./config');
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/auth',    authRouter);
 app.use('/api/player',  playerRouter);
