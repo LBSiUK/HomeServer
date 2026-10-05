@@ -48,7 +48,12 @@ app.get('/api/silence', (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(config.port, () => {
-  console.log(`Spotify remote running at http://localhost:${config.port}`);
-  if (config.demo) console.log('Demo mode: sample tracks only, Spotify and device commands are not touched.');
-});
+// Listen only when run directly (`npm start`), so the tests can load the app.
+if (require.main === module) {
+  app.listen(config.port, () => {
+    console.log(`Spotify remote running at http://localhost:${config.port}`);
+    if (config.demo) console.log('Demo mode: sample tracks only, Spotify and device commands are not touched.');
+  });
+}
+
+module.exports = app;
