@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const { isRunning, open } = require('../services/appleScript');
+const { isRunning, open } = require('../services/spotify');
 
 const router = express.Router();
 

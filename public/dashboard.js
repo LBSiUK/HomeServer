@@ -294,9 +294,37 @@ function startProgressTicker() {
   }, 500);
 }
 
+// ── Fit to larger screens ─────────────────────────────────────────────────────
+// The layout is a fixed 480x360 canvas sized for the iPod touch. On bigger
+// screens (iPad, desktop browsers) scale it up to fill the window instead of
+// leaving it in the top-left corner. It never scales down, so small screens
+// render exactly as before.
+
+var LAYOUT_W = 480;
+var LAYOUT_H = 360;
+
+function fitToScreen() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  var s = Math.min(w / LAYOUT_W, h / LAYOUT_H);
+  var style = document.body.style;
+  var t = '';
+  if (s > 1) {
+    t = 'translate(' + Math.round((w - LAYOUT_W * s) / 2) + 'px,' +
+        Math.round((h - LAYOUT_H * s) / 2) + 'px) scale(' + s + ')';
+  }
+  style.webkitTransformOrigin = '0 0';
+  style.transformOrigin       = '0 0';
+  style.webkitTransform       = t;
+  style.transform             = t;
+}
+
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 function init() {
+  fitToScreen();
+  window.addEventListener('resize', fitToScreen, false);
+  window.addEventListener('orientationchange', fitToScreen, false);
   fetchHomeState();
   checkSpotify();
   updateClock();

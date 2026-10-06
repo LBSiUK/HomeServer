@@ -3,6 +3,7 @@
 var express = require('express');
 var router  = express.Router();
 var exec    = require('child_process').exec;
+var demo    = require('../config').demo;
 
 // ── In-memory device state ────────────────────────────────────────────────────
 // State resets on server restart. Adjust defaults here if needed.
@@ -18,6 +19,7 @@ var deviceState = {
 //   CMD_DESK_ON="shortcuts run 'Desk On'"           CMD_DESK_OFF="shortcuts run 'Desk Off'"
 //   CMD_AMP_ON="shortcuts run 'Amp On'"             CMD_AMP_OFF="shortcuts run 'Amp Off'"
 // Or replace null with any shell command string.
+// In demo mode (DEMO=1) the commands are never run; the buttons only change the state below.
 var commands = {
   overhead:  { on: process.env.CMD_OVERHEAD_ON  || null, off: process.env.CMD_OVERHEAD_OFF  || null },
   desk:      { on: process.env.CMD_DESK_ON      || null, off: process.env.CMD_DESK_OFF      || null },
@@ -25,7 +27,7 @@ var commands = {
 };
 
 function runCommand(cmd) {
-  if (!cmd) return;
+  if (!cmd || demo) return;
   exec(cmd, function (err) {
     if (err) console.error('[home] command error:', err.message);
   });
